@@ -42,13 +42,13 @@ def main():
         if pwd != repwd:
             print("Passwords didn't match.")
             main()
-        hashpwd=hashlib.sha224(pwd)
-        hashuser=hashlib.sha224(pwd)
+        hashpwd=hashlib.sha224(pwd.encode('utf-8'))
+        hashuser=hashlib.sha224(pwd.encode('utf-8'))
         os.chdir('users')
         os.mkdir(username)
         os.chdir(homedir+'/basc/pwd')
-        with open(hashuser.hexdigest,'w')as f:
-            f.write(hashpwd.hexdigest)
+        with open(hashuser.hexdigest(),'w')as f:
+            f.write(hashpwd.hexdigest())
 
 
 
